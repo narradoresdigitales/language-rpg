@@ -1,0 +1,91 @@
+/* General Styles */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: lightgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Game Container */
+#game-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 90vh;
+    border: 2px solid lightgreen;
+    padding: 15px;
+    box-shadow: 0 0 15px lightgreen;
+    overflow: hidden;
+}
+
+/* Game Section */
+#game-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Instructions */
+#instructions {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: black;
+    border-bottom: 2px solid lightgreen;
+    position: sticky;
+    top: 0;
+}
+
+/* Game Text Output */
+#game-text {
+    font-size: 16px;
+    color: lightgreen;
+    line-height: 1.5;
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 10px;
+    padding-top: 25px;
+    margin-top: 35px;
+    border: 2px solid lightgreen;
+    align-self: center;
+}
+
+/* Input Area */
+#input-area {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    align-self: center;
+}
+
+#user-input {
+    font-family: 'Courier New', Courier, monospace;
+    width: 70%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid lightgreen;
+    background-color: black;
+    color: lightgreen;
+    align-self: center;
+}
+
+#submit-command {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px 20px;
+    background-color: black;
+    color: lightgreen;
+    border: 1px solid lightgreen;
+    cursor: pointer;
+    align-self: center;
+}
+
+#submit-command:hover {
+    background-color: darkgreen;
+}
