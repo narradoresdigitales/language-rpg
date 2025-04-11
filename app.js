@@ -3,9 +3,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const userInput = document.getElementById("user-input");
     const submitButton = document.getElementById("submit-command");
     const instructions = document.getElementById("instructions");
+    const imageContainer = document.getElementById("image-container");
+    const directionImage = document.getElementById("direction-image");
 
     let currentLanguage = "";
     let gameStarted = false;
+
+    const images = {
+        forward: "path/to/forward-image.jpg", // Replace with your image path
+        left: "path/to/left-image.jpg",      // Replace with your image path
+        right: "path/to/right-image.jpg",    // Replace with your image path
+        back: "path/to/back-image.jpg"       // Replace with your image path
+    };
 
     const messages = {
         English: {
@@ -68,25 +77,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function handleMovement(event) {
         if (!gameStarted) return;
-
+    
         let message = "";
+        let direction = "";
+    
         switch (event.key) {
             case "ArrowUp":
                 message = messages[currentLanguage].moveForward;
+                direction = "forward";
                 break;
             case "ArrowDown":
             case " ":
                 message = messages[currentLanguage].moveBack;
+                direction = "backward";
                 break;
             case "ArrowLeft":
                 message = messages[currentLanguage].lookLeft;
+                direction = "left";
                 break;
             case "ArrowRight":
                 message = messages[currentLanguage].lookRight;
+                direction = "right";
                 break;
         }
-        if (message) appendMessage(message);
+        
+        if (message) {
+            appendMessage(message);
+            showImage(direction); // Display the corresponding image
+        }
     }
+    
+    function showImage(direction) {
+        // Hide all images first
+        const allImages = document.querySelectorAll('.movement-image');
+        allImages.forEach(image => image.style.display = 'none');
+    
+        // Show the specific image for the direction
+        const imageToShow = document.getElementById(`${direction}Image`);
+        if (imageToShow) {
+            imageToShow.style.display = 'block';
+        }
+    }
+    
+    
 
     function handleUserInput() {
         const input = userInput.value.trim();

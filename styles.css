@@ -14,13 +14,24 @@ body {
 /* Game Container */
 #game-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Place the items side by side */
+    justify-content: space-between; /* Space between the elements */
     width: 80%;
     height: 90vh;
     border: 2px solid lightgreen;
     padding: 15px;
     box-shadow: 0 0 15px lightgreen;
     overflow: hidden;
+}
+
+/* Background Container */
+#background-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%; /* Adjust width as necessary */
+    padding-left: 10px; /* Adds space between text and images */
 }
 
 /* Game Section */
@@ -30,6 +41,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    flex: 1; /* This allows the game section to take up the remaining space */
 }
 
 /* Instructions */
@@ -55,6 +67,7 @@ body {
     margin-top: 35px;
     border: 2px solid lightgreen;
     align-self: center;
+    scroll-behavior: smooth;
 }
 
 /* Input Area */
@@ -89,3 +102,23 @@ body {
 #submit-command:hover {
     background-color: darkgreen;
 }
+
+@media (max-width: 768px) {
+    #game-container {
+        width: 95%;
+        height: 90vh;
+    }
+    
+    #user-input {
+        width: 60%;
+    }
+}
+
+/* Movement Images */
+.movement-image {
+    width: 100px; /* Adjust image size */
+    height: auto;
+    margin: 10px;
+    transition: opacity 0.5s ease;
+}
+
